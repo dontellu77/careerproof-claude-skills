@@ -1,0 +1,21 @@
+{
+  "name": "careerproof",
+  "owner": {
+    "name": "CareerProof.ai",
+    "email": "support@careerproof.ai"
+  },
+  "metadata": {
+    "description": "Official CareerProof skills for Claude Code. Guided workflows for Atlas (HR/TA workforce intelligence) and CeeVee (career optimization).",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "careerproof-skills",
+      "source": "./",
+      "description": "AI career intelligence skills: Atlas hiring workflows (onboard, shortlist, reports, deep eval) and CeeVee career optimization (CV positioning, career intel)",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": ["career", "hiring", "recruitment", "cv", "resume", "hr", "talent-acquisition"]
+    }
+  ]
+}

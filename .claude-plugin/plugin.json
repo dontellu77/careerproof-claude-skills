@@ -1,0 +1,13 @@
+{
+  "name": "careerproof-skills",
+  "description": "AI career intelligence skills for CareerProof MCP — Atlas (HR/TA workforce intelligence) and CeeVee (career professionals)",
+  "version": "1.0.0",
+  "author": {
+    "name": "CareerProof.ai",
+    "email": "support@careerproof.ai"
+  },
+  "homepage": "https://careerproof.ai",
+  "repository": "https://github.com/careerproof/careerproof-claude-skills",
+  "license": "MIT",
+  "keywords": ["career", "hiring", "recruitment", "cv", "resume", "hr", "talent-acquisition", "workforce-intelligence"]
+}
