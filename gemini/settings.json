@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "careerproof": {
+      "url": "https://careerproof-mcp.careerproof.ai/mcp/bearer",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY_HERE"
+      }
+    }
+  }
+}

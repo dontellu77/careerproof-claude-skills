@@ -54,11 +54,59 @@ Every CareerProof skill is backed by a three-layer intelligence stack:
 
 ## Installation
 
-Install the CareerProof skills plugin in Claude Code:
+These skills follow the [Agent Skills](https://agentskills.io) open standard and work with both **Claude Code** and **Gemini CLI**.
+
+### Claude Code
 
 ```bash
-claude skills install careerproof
+# Add the marketplace
+/plugin marketplace add dontellu77/careerproof-claude-skills
+
+# Install the skills
+/plugin install careerproof-skills@careerproof
 ```
+
+### Gemini CLI
+
+**1. Install skills:**
+
+```bash
+# Clone the repo
+git clone https://github.com/dontellu77/careerproof-claude-skills.git
+cd careerproof-claude-skills
+
+# Install globally (all projects)
+bash gemini/install.sh --global
+
+# Or install to current project only
+bash gemini/install.sh
+```
+
+Windows:
+```powershell
+.\gemini\install.ps1 -Global
+```
+
+**2. Connect the MCP server:**
+
+Add to your Gemini CLI settings (`~/.gemini/settings.json`):
+
+```json
+{
+  "mcpServers": {
+    "careerproof": {
+      "url": "https://careerproof-mcp.careerproof.ai/mcp/bearer",
+      "headers": {
+        "Authorization": "Bearer YOUR_API_KEY_HERE"
+      }
+    }
+  }
+}
+```
+
+Replace `YOUR_API_KEY_HERE` with your CareerProof API key (`cpk_...`).
+
+**3. Verify:** Start Gemini CLI and run `/mcp` to confirm the server is connected.
 
 ## Usage
 
@@ -83,9 +131,11 @@ Skills accept optional arguments:
 ## Requirements
 
 - An active CareerProof account with available credits
-- CareerProof MCP server connected to your Claude Code session
+- CareerProof MCP server connected to your session
+- Get your API key at [careerproof.ai](https://careerproof.ai)
 
 ## Links
 
 - [CareerProof Platform](https://careerproof.ai)
+- [MCP Server Docs](https://careerproof-mcp.careerproof.ai/docs)
 - [Support](mailto:support@careerproof.ai)
