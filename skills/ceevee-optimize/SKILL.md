@@ -65,11 +65,16 @@ Call `ceevee_confirm_lens` with:
 
 This takes 20-30 seconds.
 
-Present each edit with:
-- **Section** being modified
-- **Before text** — Current version
-- **After text** — Suggested revision
-- **Trade-off notes** — What this change gains and what it sacrifices
+**Important:** The `ceevee_confirm_lens` response can be very large (50,000-100,000+ characters) because it contains full before/after text for every CV section. Do not try to display the raw response. Instead:
+
+1. Parse the response to extract the `edits` array
+2. For each edit, present a concise summary:
+   - **Section** being modified
+   - **Key changes** — A 1-2 sentence summary of what changed
+   - **Trade-off** — What this edit gains vs. what it sacrifices
+3. Offer to show the full before/after text for any specific section the user wants to see in detail
+
+This keeps the output readable while giving the user access to the full detail on demand.
 
 ### Step 5: Optional — Explain Individual Edits (1 credit each)
 

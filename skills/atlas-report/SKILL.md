@@ -58,31 +58,29 @@ Common inputs across report types include:
 
 Present the required fields first, then ask about optional fields that would enrich the report.
 
-### Step 3: Confirm and Generate (15 credits)
+### Step 3: Confirm and Generate
 
 Before starting generation:
 1. Show a summary of the selected report type and all inputs
-2. Confirm the cost: **15 credits**
+2. Confirm the credit cost (check the `credits` field from `atlas_list_report_types` — typically 15-40 credits depending on report type)
 3. Note that generation takes **2-10 minutes** depending on complexity
 
 Call `atlas_start_report` with:
 - `report_type` — The selected report type string
 - `inputs` — Object containing all collected inputs
 
-Save the returned `report_id` and `task_id`.
+Save the returned `report_id`.
+
+**Important:** `atlas_start_report` returns a `report_id` but does **not** return a `task_id`. Do not attempt to use `careerproof_task_status` for polling — it will not work for reports.
 
 ### Step 4: Monitor Progress
 
-Poll `careerproof_task_status` with `task_id` every **15-30 seconds** (reports take longer than analyses).
+Poll `atlas_get_report` with `report_id` every **15-30 seconds** until the `status` field changes to `completed`.
 
-Show progress updates to the user:
+Reports typically take 3-8 minutes to generate. Show progress updates to the user:
 - "Researching market data..."
 - "Analyzing trends..."
 - "Generating report..."
-
-When status reaches `completed`, proceed to download.
-
-Alternatively, call `atlas_get_report` with `report_id` to check status and see the report title and summary.
 
 ### Step 5: Download Report
 
@@ -103,7 +101,7 @@ After delivering the report, offer:
 | Action | Cost |
 |--------|------|
 | Browse report types | FREE |
-| Generate report | 15 credits |
+| Generate report | Varies by type (check `atlas_list_report_types`) |
 | Download PDF | FREE |
 | List past reports | FREE |
 

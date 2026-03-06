@@ -50,6 +50,7 @@ Match all candidates against the job description:
 3. Poll `atlas_get_jd_fit_batch_status` with `context_id` and `batch_id` every 10-15 seconds until `completed`
 
 4. Call `atlas_get_jd_fit_results` with `context_id` to get ranked results with fit scores
+   - **Fallback:** If `atlas_get_jd_fit_results` returns an error, use the ranking data from `atlas_get_jd_fit_batch_status` instead — it includes candidate scores and rankings in the completed response
 
 ### Step 4: Build the Shortlist
 
@@ -98,3 +99,4 @@ For each shortlisted candidate, offer:
 - gem_lite is sufficient for initial screening; save gem_full for shortlisted candidates
 - If candidates haven't been uploaded yet, direct user to `/atlas-onboard`
 - JD-FIT results include strengths and gaps — use these to guide interview questions
+- **Session timeout:** Batch operations with many candidates can take 10+ minutes. If you hit a 403 Forbidden error during polling, the MCP session may have expired. Retry the workflow — completed analyses are persisted and won't be re-charged
