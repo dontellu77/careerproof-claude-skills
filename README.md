@@ -42,7 +42,7 @@ Every CareerProof skill and tool is backed by a three-layer intelligence stack:
 
 ```bash
 # Add the marketplace and install
-/plugin marketplace add dontellu77/careerproof-claude-skills
+/plugin marketplace add careerproof-labs/careerproof-skills
 /plugin install careerproof-skills@careerproof
 ```
 
@@ -54,8 +54,8 @@ That's it. The plugin installs both the skills and the MCP server connection. On
 
 ```bash
 # Clone the repo
-git clone https://github.com/dontellu77/careerproof-claude-skills.git
-cd careerproof-claude-skills
+git clone https://github.com/careerproof-labs/careerproof-skills.git
+cd careerproof-skills
 
 # Install globally (all projects)
 bash gemini/install.sh --global
@@ -216,5 +216,5 @@ Use a bearer token (`cpk_...` API key) in the MCP server configuration. Get your
 
 - [CareerProof Platform](https://careerproof.ai)
 - [MCP Server Docs](https://mcp.careerproof.ai/docs)
-- [GitHub](https://github.com/dontellu77/careerproof-claude-skills)
+- [GitHub](https://github.com/careerproof-labs/careerproof-skills)
 - [Support](mailto:support@careerproof.ai)

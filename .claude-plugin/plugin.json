@@ -1,13 +1,13 @@
 {
   "name": "careerproof-skills",
-  "description": "AI-powered career and workforce intelligence — 6 guided skills + 42 MCP tools backed by 50+ expert-curated sources (HBR, McKinsey, BCG, Gartner) with live web search. Atlas skills for org design, workforce planning, and talent evaluation. CeeVee skills for CV optimization and career strategy.",
-  "version": "1.1.0",
+  "description": "AI-powered career and workforce intelligence — 13 guided skills + 67 MCP tools backed by 50+ expert-curated sources (HBR, McKinsey, BCG, Gartner) with live web search. Atlas skills (9) for competency analysis, JD review, custom eval rubrics, workforce chat, and talent reports. CeeVee skills (4) for CV optimization, quick review, career intelligence chat, and career reports.",
+  "version": "2.0.0",
   "author": {
     "name": "CareerProof.ai",
     "email": "support@careerproof.ai"
   },
   "homepage": "https://careerproof.ai",
-  "repository": "https://github.com/dontellu77/careerproof-claude-skills",
+  "repository": "https://github.com/careerproof-labs/careerproof-skills",
   "license": "MIT",
   "keywords": [
     "career",
