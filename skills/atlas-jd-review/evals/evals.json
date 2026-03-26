@@ -1,0 +1,28 @@
+{
+  "skill_name": "atlas-jd-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Review this Senior Data Engineer JD for our London office and check if the salary range is competitive.",
+      "expected_output": "Collects JD text, runs analysis with location_hint=London, presents quality scores, bias flags, salary benchmarks, and extracted skills.",
+      "assertions": [
+        {
+          "name": "runs_analysis",
+          "type": "tool_call",
+          "description": "Calls atlas_start_jd_analysis with JD text and location hint"
+        },
+        {
+          "name": "shows_salary",
+          "type": "output_contains",
+          "description": "Presents salary benchmark data for the role"
+        },
+        {
+          "name": "shows_bias",
+          "type": "output_contains",
+          "description": "Shows any bias or inclusivity flags"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "skill_name": "atlas-fit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Match Sarah's CV against our Senior Product Manager JD.",
+      "expected_output": "Finds context, candidate, and JD, runs enhanced FIT match, presents fit score with strengths, gaps, and recommendations.",
+      "assertions": [
+        {
+          "name": "finds_context",
+          "type": "tool_call",
+          "description": "Calls atlas_list_contexts"
+        },
+        {
+          "name": "finds_candidate",
+          "type": "tool_call",
+          "description": "Calls atlas_list_candidates to find Sarah"
+        },
+        {
+          "name": "gets_jd",
+          "type": "tool_call",
+          "description": "Calls atlas_list_jds to get the JD"
+        },
+        {
+          "name": "runs_fit_match",
+          "type": "tool_call",
+          "description": "Calls atlas_fit_match_enhanced for single candidate match"
+        },
+        {
+          "name": "shows_score",
+          "type": "output_contains",
+          "description": "Presents fit score (0-100) with strengths and gaps"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Rank all my candidates against the Engineering Lead JD.",
+      "expected_output": "Finds context and all candidates, uses atlas_start_fit_rank to rank multiple candidates, polls until complete, presents ranked results.",
+      "assertions": [
+        {
+          "name": "finds_candidates",
+          "type": "tool_call",
+          "description": "Calls atlas_list_candidates to get all candidates"
+        },
+        {
+          "name": "runs_ranking",
+          "type": "tool_call",
+          "description": "Calls atlas_start_fit_rank with multiple candidate IDs"
+        },
+        {
+          "name": "polls_status",
+          "type": "tool_call",
+          "description": "Polls careerproof_task_status until completion"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "skill_name": "ceevee-report",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate an AI Displacement Risk report for my role as a senior financial analyst in New York.",
+      "expected_output": "Lists report types, selects AI Displacement Risk, collects inputs, confirms 15 credit cost, generates report, polls every 30s, downloads and presents PDF.",
+      "assertions": [
+        {"name": "lists_types", "type": "tool_call", "description": "Calls ceevee_list_report_types to discover available types"},
+        {"name": "confirms_cost", "type": "output_contains", "description": "Shows credit cost and confirms before generating"},
+        {"name": "generates_report", "type": "tool_call", "description": "Calls ceevee_generate_report with correct type and inputs"},
+        {"name": "polls_correctly", "type": "tool_call", "description": "Polls ceevee_get_report (NOT careerproof_task_status) every 30s"},
+        {"name": "downloads_pdf", "type": "tool_call", "description": "Calls ceevee_download_report to retrieve the PDF"}
+      ],
+      "files": []
+    }
+  ]
+}

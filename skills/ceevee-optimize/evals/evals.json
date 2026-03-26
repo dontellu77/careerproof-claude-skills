@@ -1,0 +1,18 @@
+{
+  "skill_name": "ceevee-optimize",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Optimize my CV. I want to reposition towards a Head of Engineering role.",
+      "expected_output": "Uploads or finds CV, runs positioning analysis, presents lens options, explores opportunities, generates targeted edits with trade-offs.",
+      "assertions": [
+        {"name": "handles_cv", "type": "tool_call", "description": "Uploads CV or finds existing version"},
+        {"name": "runs_positioning", "type": "tool_call", "description": "Calls ceevee_analyze_positioning"},
+        {"name": "gets_opportunities", "type": "tool_call", "description": "Calls ceevee_get_opportunities with chosen lens"},
+        {"name": "generates_edits", "type": "tool_call", "description": "Calls ceevee_confirm_lens to generate targeted edits"},
+        {"name": "summarizes_edits", "type": "output_contains", "description": "Presents edits as concise summaries with trade-offs, not raw response"}
+      ],
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "skill_name": "atlas-onboard",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm setting up hiring for NovaTech Solutions, a mid-size fintech company in Singapore with about 200 employees. We're looking for a Head of Platform Engineering. Our team is scaling fast and we need someone who can manage a team of 15 engineers and drive our cloud migration.",
+      "expected_output": "Creates a new hiring context with company details, confirms context_id. Since no CV files are available, acknowledges that and suggests next steps. Creates a JD from the description provided.",
+      "assertions": [
+        {
+          "name": "creates_context",
+          "type": "tool_call",
+          "description": "Calls atlas_create_context with company name, industry, size, and location"
+        },
+        {
+          "name": "creates_jd",
+          "type": "tool_call",
+          "description": "Calls atlas_create_jd with job title and description content"
+        },
+        {
+          "name": "presents_next_steps",
+          "type": "output_contains",
+          "description": "Mentions next steps like uploading candidates or running analysis"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Do I already have a hiring context set up? I think I created one before for a tech company.",
+      "expected_output": "Lists existing contexts, finds the CareerProof context with 14 candidates, presents what's already there including candidate count and JD.",
+      "assertions": [
+        {
+          "name": "lists_contexts",
+          "type": "tool_call",
+          "description": "Calls atlas_list_contexts to check for existing contexts"
+        },
+        {
+          "name": "shows_existing_data",
+          "type": "output_contains",
+          "description": "Reports the existing context with candidate count and JD title"
+        },
+        {
+          "name": "no_duplicate_creation",
+          "type": "negative",
+          "description": "Does NOT create a new context when one already exists"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

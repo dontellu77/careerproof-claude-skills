@@ -99,7 +99,7 @@ The AI combines three intelligence sources for every response:
 
 **Not for:**
 - CV editing (use `/ceevee-optimize`)
-- Candidate evaluation (use `/atlas-deep-eval` or `/atlas-shortlist`)
+- Candidate evaluation (use `/atlas-gem`, `/atlas-fit`, or `/atlas-shortlist`)
 - Full research reports (use `/atlas-report`)
 
 ## Tips

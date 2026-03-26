@@ -54,9 +54,13 @@ Confirm everything is ready:
 Present the user with what they can do now:
 
 - **Batch evaluate candidates:** `/atlas-shortlist` — Rank all candidates against the JD (5-13 credits per candidate)
-- **Deep-dive a single candidate:** `/atlas-deep-eval` — Full GEM + FIT + interview questions (18-26 credits)
+- **Competency scoring:** `/atlas-gem` — GEM 10-factor competency analysis (5-10 credits)
+- **JD matching:** `/atlas-fit` — CV-to-JD fit scoring (8 credits)
+- **Interview prep:** `/atlas-interview` — Tailored interview questions (8 credits)
 - **Generate a research report:** `/atlas-report` — Market intel, talent landscape, or workforce planning (15 credits)
-- **Analyze the JD itself:** Call `atlas_start_jd_analysis` for bias detection, salary benchmarking, and clarity scoring (5 credits)
+- **Analyze the JD:** `/atlas-jd-review` — Bias detection, salary benchmarking, and clarity scoring (5 credits)
+- **Custom evaluation:** `/atlas-custom-eval` — Build bespoke scoring rubrics (FREE setup, 5 credits/candidate to evaluate)
+- **Workforce chat:** `/atlas-chat` — Hiring advice and talent market intelligence (2-3 credits/message)
 
 ## Credit Cost
 

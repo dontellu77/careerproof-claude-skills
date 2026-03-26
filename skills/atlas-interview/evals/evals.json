@@ -1,0 +1,33 @@
+{
+  "skill_name": "atlas-interview",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate 8 standard interview questions for the top candidate for our CTO position.",
+      "expected_output": "Finds context and candidate, generates 8 interview questions at standard pressure, presents each with rationale.",
+      "assertions": [
+        {
+          "name": "finds_context",
+          "type": "tool_call",
+          "description": "Calls atlas_list_contexts"
+        },
+        {
+          "name": "finds_candidate",
+          "type": "tool_call",
+          "description": "Calls atlas_list_candidates"
+        },
+        {
+          "name": "generates_questions",
+          "type": "tool_call",
+          "description": "Calls atlas_generate_interview with num_questions=8 and pressure_level=standard"
+        },
+        {
+          "name": "shows_rationale",
+          "type": "output_contains",
+          "description": "Each question includes rationale for why it matters"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

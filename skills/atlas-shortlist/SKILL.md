@@ -78,7 +78,9 @@ Call `atlas_get_analytics` with `context_id` for a visual summary of:
 
 For each shortlisted candidate, offer:
 - **Interview prep:** Call `atlas_generate_interview` (8 credits) for tailored questions
-- **Deep evaluation:** `/atlas-deep-eval` for a full single-candidate deep-dive
+- **Competency scoring:** `/atlas-gem` for GEM competency analysis
+- **JD matching:** `/atlas-fit` for FIT match scoring
+- **Interview prep:** `/atlas-interview` for tailored interview questions
 - **Research report:** `/atlas-report` for market context on the role
 
 ## Credit Cost

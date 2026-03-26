@@ -1,0 +1,38 @@
+{
+  "skill_name": "atlas-shortlist",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to screen and rank 3 of my candidates against the VP Technology role - specifically Adrian Moretti, Gavin Pathross, and Emily Carter. Use gem_lite to keep costs down.",
+      "expected_output": "Identifies the context and candidates, confirms credit cost (5+3=8 per candidate x 3 = 24 credits), runs batch GEM lite and JD-FIT, presents a ranked shortlist table with scores and recommendations.",
+      "assertions": [
+        {
+          "name": "lists_context_and_candidates",
+          "type": "tool_call",
+          "description": "Calls atlas_list_contexts and atlas_list_candidates to find the data"
+        },
+        {
+          "name": "confirms_cost_before_running",
+          "type": "output_contains",
+          "description": "Shows total credit cost and asks for confirmation before running batch operations"
+        },
+        {
+          "name": "runs_batch_gem",
+          "type": "tool_call",
+          "description": "Calls atlas_start_batch_gem with correct candidate IDs and gem_lite type"
+        },
+        {
+          "name": "runs_batch_fit",
+          "type": "tool_call",
+          "description": "Calls atlas_start_jd_fit_batch for JD-FIT matching"
+        },
+        {
+          "name": "presents_ranked_table",
+          "type": "output_contains",
+          "description": "Shows a ranked table with candidate names, GEM scores, FIT scores, strengths, and gaps"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

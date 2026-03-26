@@ -1,12 +1,24 @@
 ---
 name: ceevee-optimize
-description: Full CV optimization pipeline — upload your CV, get market positioning analysis, explore career opportunities, and receive targeted section-by-section edits with trade-offs. Use when you want to improve, optimize, or reposition your CV/resume.
+description: Full interactive CV optimization pipeline — upload your CV, get market positioning analysis, explore career pivot opportunities, then receive targeted section-by-section edits with trade-offs. 3-step process where YOU choose the lens and opportunities. Use this skill whenever someone asks to optimize their CV, improve their resume, reposition their career narrative, fix mixed signals in their CV, get CV edits with trade-offs, or run the positioning pipeline. Also triggers on "help me with my CV", "my resume needs work", "how does the market read my CV", or "I'm pivoting careers and need to update my resume". For a faster non-interactive review, use ceevee-quick-review instead (10 credits, single call).
 disable-model-invocation: true
 ---
 
 # CeeVee Optimize — CV Positioning Pipeline
 
 Upload a CV and run the full 3-step positioning pipeline: market analysis, opportunity exploration, and targeted edits with before/after suggestions.
+
+## MCP Tools
+
+| Tool | Cost | Notes |
+|------|------|-------|
+| `ceevee_upload_cv` | FREE | Upload CV (PDF/DOCX) |
+| `ceevee_list_versions` | FREE | Find existing CVs |
+| `ceevee_analyze_positioning` | 5 credits | Step 1: Market positioning (sync 20-30s) |
+| `ceevee_get_opportunities` | 3 credits | Step 2: Career pivots (sync 20-30s) |
+| `ceevee_confirm_lens` | 5 credits | Step 3: Targeted edits (sync 20-30s) |
+| `ceevee_explain_change` | 1 credit | Optional: explain individual edits (sync) |
+| `ceevee_get_positioning_session` | FREE | Retrieve session data later |
 
 ## Workflow
 
@@ -82,23 +94,11 @@ If the user wants deeper reasoning on any specific edit:
 
 Call `ceevee_explain_change` with `cv_version_id` and the `change_id` from the edits array.
 
-### Step 6: Optional — Interactive Discussion (2 credits/message)
+### Step 6: Next Steps
 
-For ongoing CV coaching:
-
-Call `ceevee_chat` with `cv_version_id` and the user's message. Include `conversation_id` from previous messages to maintain context.
-
-### Step 7: Alternative — Quick Review (10 credits)
-
-If the user wants everything in one call instead of the 3-step pipeline:
-
-Call `ceevee_full_review` with:
-- `cv_version_id`
-- `requested_lens` (optional — let AI infer if not specified)
-- `jd_text` (optional — for role-targeted optimization)
-- `include_opportunities` (boolean)
-
-This runs the full pipeline autonomously in 30-60 seconds and costs 10 credits (vs 13 for the 3-step pipeline).
+- `/ceevee-career-intel` for salary data and market research
+- `/ceevee-report` for comprehensive career intelligence reports
+- Session persists: `ceevee_get_positioning_session(session_id)` retrieves all data later
 
 ## Credit Cost
 
@@ -109,15 +109,12 @@ This runs the full pipeline autonomously in 30-60 seconds and costs 10 credits (
 | Opportunities | 3 credits |
 | Targeted edits | 5 credits |
 | Explain edit | 1 credit each |
-| Chat follow-up | 2 credits/message |
-
-**3-step pipeline total:** 13 credits
-**Quick review alternative:** 10 credits
+| **Pipeline total** | **13 credits** |
 
 ## Tips
 
 - The 3-step pipeline gives the user more control — they choose the lens and opportunities before edits are generated
-- The quick review is faster and cheaper but less interactive
-- If the user has a specific target role, pass `jd_text` to `ceevee_full_review` for role-targeted optimization
+- For a faster single-call alternative, use `/ceevee-quick-review` (10 credits)
+- If the user has a specific target role, suggest `/ceevee-quick-review` with `jd_text` instead
 - Edits include trade-off notes — always present these so the user can make informed decisions
 - The session persists — call `ceevee_get_positioning_session` with `session_id` to retrieve all data later

@@ -1,0 +1,33 @@
+{
+  "skill_name": "ceevee-career-intel",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "What's the salary range for VP of Technology in Singapore in 2026? I have my CV uploaded already.",
+      "expected_output": "Finds existing CV version for personalization, calls ceevee_chat with the salary question and cv_version_id, presents AI analysis with sources from KB and live search.",
+      "assertions": [
+        {
+          "name": "checks_cv_versions",
+          "type": "tool_call",
+          "description": "Calls ceevee_list_versions to find existing CV for personalization"
+        },
+        {
+          "name": "sends_chat_with_cv",
+          "type": "tool_call",
+          "description": "Calls ceevee_chat with message and cv_version_id"
+        },
+        {
+          "name": "presents_salary_data",
+          "type": "output_contains",
+          "description": "Shows salary ranges with market context and sources"
+        },
+        {
+          "name": "mentions_followup",
+          "type": "output_contains",
+          "description": "Offers to continue the conversation or explore related topics"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

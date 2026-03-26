@@ -1,0 +1,43 @@
+{
+  "skill_name": "atlas-gem",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Run a full GEM competency analysis on the latest candidate in my hiring context.",
+      "expected_output": "Finds context and candidate, checks for existing analyses, confirms 10 credit cost for gem_full, runs analysis, polls until complete, presents competency scores.",
+      "assertions": [
+        {
+          "name": "finds_context",
+          "type": "tool_call",
+          "description": "Calls atlas_list_contexts to find hiring context"
+        },
+        {
+          "name": "finds_candidate",
+          "type": "tool_call",
+          "description": "Calls atlas_list_candidates to find the candidate"
+        },
+        {
+          "name": "checks_existing",
+          "type": "tool_call",
+          "description": "Calls atlas_list_analyses to check for existing analyses"
+        },
+        {
+          "name": "starts_analysis",
+          "type": "tool_call",
+          "description": "Calls atlas_start_gem_analysis with gem_full type"
+        },
+        {
+          "name": "polls_status",
+          "type": "tool_call",
+          "description": "Polls careerproof_task_status until completion"
+        },
+        {
+          "name": "gets_results",
+          "type": "tool_call",
+          "description": "Calls atlas_get_analysis to retrieve results"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

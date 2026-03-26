@@ -1,0 +1,36 @@
+{
+  "skill_name": "atlas-chat",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "What's the talent supply for senior React developers in Berlin right now?",
+      "expected_output": "Uses atlas_chat (not advisor) since this requires live data tools, presents talent supply/demand data for React developers in Berlin.",
+      "assertions": [
+        {
+          "name": "uses_full_chat",
+          "type": "tool_call",
+          "description": "Calls atlas_chat (not atlas_advisor_chat) for data-heavy question"
+        },
+        {
+          "name": "shows_data",
+          "type": "output_contains",
+          "description": "Presents talent supply/demand data with market context"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Quick question — should I include equity in this offer for a mid-level PM?",
+      "expected_output": "Uses atlas_advisor_chat for quick lightweight advice, provides hiring recommendation.",
+      "assertions": [
+        {
+          "name": "uses_advisor",
+          "type": "tool_call",
+          "description": "Calls atlas_advisor_chat for simple hiring question"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

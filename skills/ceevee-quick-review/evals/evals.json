@@ -1,0 +1,17 @@
+{
+  "skill_name": "ceevee-quick-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Give me a quick review of my CV targeted at this Product Lead JD.",
+      "expected_output": "Finds or uploads CV, confirms 10 credit cost, runs ceevee_full_review with jd_text, presents positioning and edits summary.",
+      "assertions": [
+        {"name": "handles_cv", "type": "tool_call", "description": "Uploads CV or finds existing version"},
+        {"name": "confirms_cost", "type": "output_contains", "description": "Confirms 10 credit cost before running"},
+        {"name": "runs_review", "type": "tool_call", "description": "Calls ceevee_full_review with jd_text"},
+        {"name": "summarizes_results", "type": "output_contains", "description": "Presents positioning and edits as concise summaries"}
+      ],
+      "files": []
+    }
+  ]
+}

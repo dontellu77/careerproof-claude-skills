@@ -1,0 +1,61 @@
+{
+  "skill_name": "atlas-custom-eval",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a custom evaluation model for our Data Engineering hiring. I have example CVs to upload.",
+      "expected_output": "Creates a custom eval model, guides user through artifact upload, infers rubric from artifacts, presents rubric for review.",
+      "assertions": [
+        {
+          "name": "creates_model",
+          "type": "tool_call",
+          "description": "Calls atlas_create_custom_eval_model with name"
+        },
+        {
+          "name": "uploads_artifacts",
+          "type": "tool_call",
+          "description": "Calls atlas_upload_custom_eval_artifact for CV examples"
+        },
+        {
+          "name": "infers_rubric",
+          "type": "tool_call",
+          "description": "Calls atlas_infer_custom_eval_rubric to generate rubric"
+        },
+        {
+          "name": "shows_rubric",
+          "type": "tool_call",
+          "description": "Calls atlas_get_custom_eval_rubric to review generated rubric"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Run my Data Engineering custom eval model against the 5 candidates in my hiring context.",
+      "expected_output": "Finds the custom model, starts batch evaluation, polls until complete, presents ranked results with dimension scores.",
+      "assertions": [
+        {
+          "name": "finds_model",
+          "type": "tool_call",
+          "description": "Calls atlas_list_custom_eval_models to find the model"
+        },
+        {
+          "name": "starts_batch",
+          "type": "tool_call",
+          "description": "Calls atlas_start_custom_eval_batch with candidate IDs"
+        },
+        {
+          "name": "polls_status",
+          "type": "tool_call",
+          "description": "Polls atlas_get_custom_eval_batch_status until completion"
+        },
+        {
+          "name": "gets_results",
+          "type": "tool_call",
+          "description": "Calls atlas_get_custom_eval_batch_results for scores"
+        }
+      ],
+      "files": []
+    }
+  ]
+}
